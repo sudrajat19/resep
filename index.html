@@ -3,53 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Masakan mudah dibuat di rumah menekankan kualitas rasa dan kemudahan resep, anda mencoba sendiri di rumah."
-    />
+    <meta name="description" content="Masakan mudah dibuat di rumah menekankan kualitas rasa dan kemudahan resep, anda mencoba sendiri di rumah." />
     <meta name="google-adsense-account" content="ca-pub-6793807664330252" />
     <link rel="icon" href="gambar/pngwing.com.png" type="image/png" />
     <title>Resep Masakan mudah dibuat || Makanan Khas Indonesia</title>
     <link href="https://cdn.tailwindcss.com" rel="stylesheet" />
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6793807664330252"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-LPG7GQVSL0"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-      gtag("config", "G-LPG7GQVSL0");
-    </script>
     <script defer src="script.js"></script>
   </head>
   <body class="bg-gray-100 p-4 bg-[url('/gambar/kuliner.jpg')] bg-contain">
-    <nav
-      class="bg-[url('/gambar/talenan.png')] bg-cover fixed w-full top-0 left-0 shadow-md"
-    >
+    <nav class="bg-[url('/gambar/talenan.png')] bg-cover fixed w-full top-0 left-0 shadow-md">
       <div class="max-w-7xl mx-auto px-4 py-3">
-        <h1 class="text-white text-2xl font-semibold">
-          Resep Masakan Mudah Dibuat
-        </h1>
+        <h1 class="text-white text-2xl font-semibold">Resep Masakan Mudah Dibuat</h1>
       </div>
     </nav>
 
     <div class="max-w-xl mx-auto mt-20">
       <div class="mb-6">
-        <input
-          type="text"
-          id="search-input"
-          placeholder="Search"
-          class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200"
-        />
+        <input type="text" id="search-input" placeholder="Search" class="w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-200" />
+      </div>
+
+      <div class="mb-6">
+        <select id="category-filter" class="w-full px-4 py-2 border rounded-md shadow-sm">
+          <option value="">Semua Kategori</option>
+          <option value="seafood">Seafood</option>
+          <option value="chicken">Ayam</option>
+          <option value="vegetarian">Vegetarian</option>
+          <option value="comfort food">Comfort food</option>
+        </select>
       </div>
 
       <div id="recipe-container"></div>

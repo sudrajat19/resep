@@ -6,6 +6,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "30-40 menit",
     link: "/cumipete.html",
+    category: "seafood"
   },
   {
     title: "Tempe Mendoan",
@@ -14,6 +15,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "25-30 menit",
     link: "/tempemendoan.html",
+    category: "vegetarian"
   },
   {
     title: "Cumi Asin Asam",
@@ -22,6 +24,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "20-25 menit",
     link: "/cumiasin.html",
+    category: "seafood"
   },
   {
     title: "Nasi Goreng Spesial",
@@ -30,6 +33,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "20-30 menit",
     link: "/nasigoreng.html",
+    category: "comfort food"
   },
   {
     title: "Udang Saus Padang",
@@ -38,6 +42,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "20-30 menit",
     link: "/udangsauspadang.html",
+    category: "seafood"
   },
   {
     title: "Udang Asam Manis",
@@ -46,6 +51,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "30 menit",
     link: "/udangasammanis.html",
+    category: "seafood"
   },
   {
     title: "Tumis Kangkung",
@@ -54,6 +60,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "3-5 menit",
     link: "/tumiskangkung.html",
+    category: "vegetarian"
   },
   {
     title: "Ayam Kecap Pedas Manis",
@@ -62,6 +69,7 @@ const recipes = [
     author: "Resep Masakan",
     time: "1jam 30 menit",
     link: "/ayamkecap.html",
+    category: "chicken"
   },
   {
     title: "Ayam Penyet",
@@ -70,6 +78,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "1jam 30 menit",
     link: "/ayampenyet.html",
+    category: "chicken"
   },
   {
     title: "Ayam Goreng",
@@ -78,6 +87,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "15 menit dengan suhu 150 derajat",
     link: "/ayamgoreng.html",
+    category: "chicken"
   },
   {
     title: "Sup Ayam Fillet",
@@ -85,7 +95,8 @@ const recipes = [
     description: "200 gr ayam fillet potong, 2 bh wortel, 1 batang kayumanis, 1 ruas jahe geprek, 1/2 sdm garlic oil...",
     author: "Resep Makanan",
     time: "30-40 menit",
-    link: "/sopayamfillet.html",
+    link: "/sopayamfillet.html", 
+    category: "chicken"
   },
   {
     title: "Ayam Panggang Lada Hitam",
@@ -93,6 +104,7 @@ const recipes = [
     description: "Ayam, potong-potong, 500 gram Jeruk nipis, ambil airnya, 1 buah Bawang bombay, iris memanjang, 1/2 butir Daun salam, 2 lembar Kaldu bubuk, 1 sdm Kecap manis, 5 sdm Saus tiram, 3 sdm...",
     author: "Resep Makanan",
     link: "/ayampanggang.html",
+    category: "chicken"
   },
   {
     title: "Ayam Bakar",
@@ -101,6 +113,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "60 menit",
     link: "/ayambakar.html",
+    category: "chicken"
   },
   {
     title: "Soto Medan",
@@ -109,6 +122,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "80 menit",
     link: "/sotomedan.html",
+    category: "chicken"
   },
   {
     title: "Pindang Ikan Mas",
@@ -117,6 +131,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "+- 50menit",
     link: "/pindangikanmas.html",
+    category: "fish"
   },
   {
     title: "Ayam Rica-rica",
@@ -125,6 +140,7 @@ const recipes = [
     author: "Resep Makanan",
     time: "+- 50menit",
     link: "/ayamrica.html",
+    category: "chicken"
   },
   {
     title: "Ayam Gulai",
@@ -133,77 +149,83 @@ const recipes = [
     author: "Resep Makanan",
     time: "+- 120menit",
     link: "/ayamgulai.html",
+    category: "chicken"
   },
 ];
 
 const recipesPerPage = 5;
-let currentPage = 1;
-let filteredRecipes = recipes; // Variabel untuk menyimpan resep yang sudah difilter
+      let currentPage = 1;
+      let filteredRecipes = recipes;
 
-// Fungsi untuk merender setiap resep
-function renderRecipe(recipe) {
-  return `
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
-        <a href="${recipe.link}">
-          <img src="${recipe.image}" alt="${recipe.title}" class="w-full h-64 object-cover" />
-        </a>
-        <div class="p-6">
-          <h2 class="text-xl font-semibold text-gray-800">
-            <a href="${recipe.link}">${recipe.title}</a>
-          </h2>
-          <p class="mt-2 text-gray-600 text-sm">${recipe.description}</p>
-          <div class="mt-4 flex justify-between items-center">
-            <span class="text-gray-500 text-xs">${recipe.author}</span>
-            <span class="text-gray-500 text-xs">${recipe.time}</span>
-          </div>
-        </div>
-      </div>
-    `;
-}
+      function renderRecipe(recipe) {
+        return `
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-6">
+                    <a href="${recipe.link}">
+                        <img src="${recipe.image}" alt="${recipe.title}" class=" w-full h-64 object-cover" />
+                    </a>
+                    <div class="p-6">
+                        <h2 class="text-xl font-semibold text-gray-800">
+                            <a href="${recipe.link}">${recipe.title}</a>
+                        </h2>
+                        <p class="mt-2 text-gray-600 text-sm">${recipe.description}</p>
+                        <div class="mt-4 flex justify-between items-center">
+                            <span class="text-gray-500 text-xs">${recipe.author}</span>
+                            <span class="text-gray-500 text-xs">${recipe.time}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+      }
 
-// Fungsi untuk merender pagination
-function renderPagination(totalRecipes) {
-  const totalPages = Math.ceil(totalRecipes / recipesPerPage);
-  const paginationControls = document.getElementById("pagination-controls");
-  paginationControls.innerHTML = "";
+      function renderPagination(totalRecipes) {
+        const totalPages = Math.ceil(totalRecipes / recipesPerPage);
+        const paginationControls = document.getElementById("pagination-controls");
+        paginationControls.innerHTML = "";
 
-  for (let i = 1; i <= totalPages; i++) {
-    const pageButton = document.createElement("button");
-    pageButton.textContent = i;
-    pageButton.classList.add("px-4", "py-2", "mx-1", "bg-blue-500", "text-white", "rounded");
-    pageButton.onclick = () => {
-      currentPage = i;
+        for (let i = 1; i <= totalPages; i++) {
+          const pageButton = document.createElement("button");
+          pageButton.textContent = i;
+          pageButton.classList.add("px-4", "py-2", "mx-1", "bg-blue-500", "text-white", "rounded");
+          pageButton.onclick = () => {
+            currentPage = i;
+            renderPage();
+          };
+          paginationControls.appendChild(pageButton);
+        }
+      }
+
+      function renderPage() {
+        const startIndex = (currentPage - 1) * recipesPerPage;
+        const endIndex = currentPage * recipesPerPage;
+        const pageRecipes = filteredRecipes.slice(startIndex, endIndex);
+
+        const container = document.getElementById("recipe-container");
+        container.innerHTML = "";
+        pageRecipes.forEach((recipe) => {
+          container.innerHTML += renderRecipe(recipe);
+        });
+
+        renderPagination(filteredRecipes.length);
+      }
+
+      function searchRecipes(event) {
+        const query = event.target.value.toLowerCase();
+        filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(query) || recipe.description.toLowerCase().includes(query));
+        currentPage = 1;
+        renderPage();
+      }
+
+      document.getElementById("search-input").addEventListener("input", searchRecipes);
+
+      document.getElementById("category-filter").addEventListener("change", function () {
+        const selectedCategory = this.value;
+        if (selectedCategory) {
+          filteredRecipes = recipes.filter((recipe) => recipe.category === selectedCategory);
+        } else {
+          filteredRecipes = recipes;
+        }
+        currentPage = 1;
+        renderPage();
+      });
+
       renderPage();
-    };
-    paginationControls.appendChild(pageButton);
-  }
-}
-
-// Fungsi untuk merender halaman resep
-function renderPage() {
-  const startIndex = (currentPage - 1) * recipesPerPage;
-  const endIndex = currentPage * recipesPerPage;
-  const pageRecipes = filteredRecipes.slice(startIndex, endIndex);
-
-  const container = document.getElementById("recipe-container");
-  container.innerHTML = "";
-  pageRecipes.forEach((recipe) => {
-    container.innerHTML += renderRecipe(recipe);
-  });
-
-  renderPagination(filteredRecipes.length);
-}
-
-// Fungsi pencarian
-function searchRecipes(event) {
-  const query = event.target.value.toLowerCase(); // Ambil nilai input dan ubah menjadi lowercase
-  filteredRecipes = recipes.filter((recipe) => recipe.title.toLowerCase().includes(query) || recipe.description.toLowerCase().includes(query));
-  currentPage = 1; // Reset ke halaman pertama setelah pencarian
-  renderPage(); // Render ulang setelah filter
-}
-
-// Tambahkan event listener untuk input pencarian
-document.getElementById("search-input").addEventListener("input", searchRecipes);
-
-// Render halaman pertama saat pertama kali dimuat
-renderPage();
